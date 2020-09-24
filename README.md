@@ -1,2 +1,3 @@
 # Curve-Builder
-QT project in C++ with GUI that builds different kinds of curves by given set of points. A student project on a university computer graphics course.
+This is QT project in C++ with GUI that allows to build different types of curves by given set of points.
+This is second year student project for computer graphics course.
