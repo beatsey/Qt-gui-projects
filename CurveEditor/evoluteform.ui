@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>evoluteform</class>
+ <widget class="QWidget" name="evoluteform">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1064</width>
+    <height>588</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Эволюта</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="1">
+    <widget class="Evolute2dWidget" name="graphic_widget" native="true"/>
+   </item>
+   <item row="0" column="2">
+    <widget class="QGroupBox" name="gridGroupBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>150</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="2" column="1">
+       <widget class="QCheckBox" name="cBshowCircle">
+        <property name="text">
+         <string>Соприкасающаяся окружность</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="EvoluteTable" name="evolutetable">
+        <property name="columnCount">
+         <number>1</number>
+        </property>
+        <attribute name="horizontalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <row>
+         <property name="text">
+          <string>x(t)</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>y(t)</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>step</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>from</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>to</string>
+         </property>
+        </row>
+        <column/>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QSlider" name="sliderCircle">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QCheckBox" name="cBshowEvolute">
+        <property name="text">
+         <string>Показать эволюту</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Evolute2dWidget</class>
+   <extends>QWidget</extends>
+   <header>evolute2dwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>EvoluteTable</class>
+   <extends>QTableWidget</extends>
+   <header>evolutetable.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
