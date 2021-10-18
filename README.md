@@ -1,6 +1,6 @@
-# CurveEditor
+# CurveEditor (Spring 2019)
 GUI Application that implements curve interpolation methods and solutions to basic planar geometry problems.
-This project was created in spring of 2019 as a part of computer geometry course.
+This project was created as a part of computer geometry course during 2nd year of bachelor studies.
 It allows you to create and edit different types of curves by given set of points.
 It was my first ever Qt project.
 
@@ -13,3 +13,6 @@ Extension of the Drawer project. Allows to create borken line on three different
 # PolygonEditor (2021.10.12)
 Application allows to generate and edit two preset planar figures with some parameters.
 Full descpription of the project is inside the directiory.
+
+# odinOdinMnogo (2021.10.15)
+Application that implements ОДИН + ОДИН = МНОГО game on Qt + python. <a href="http://rebus1.com/index.php?item=rebusx&rebus=11">This</a> webpage was used as a reference. 
