@@ -14,5 +14,5 @@ Extension of the Drawer project. Allows to create borken line on three different
 Application allows to generate and edit two preset planar figures with some parameters.
 Full descpription of the project is inside the directiory.
 
-# odinOdinMnogo (2021.10.15)
+# OdinOdinMnogo (2021.10.15)
 Application that implements ОДИН + ОДИН = МНОГО game on Qt + python. <a href="http://rebus1.com/index.php?item=rebusx&rebus=11">This</a> webpage was used as a reference. 
