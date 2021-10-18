@@ -1,0 +1,3 @@
+{
+    "files": ["form.ui","model.py","view.py","main.py","controller.py"]
+}
