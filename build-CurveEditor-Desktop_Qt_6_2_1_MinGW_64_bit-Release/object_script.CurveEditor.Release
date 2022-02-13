@@ -1,0 +1,16 @@
+release/cppmath.o
+release/evolute2dwidget.o
+release/evoluteform.o
+release/main.o
+release/mainwindow.o
+release/sgraph2dwidget.o
+release/qpointtablewidget.o
+release/variables.o
+release/vec.o
+release/qrc_curve_editor_res.o
+release/moc_evolute2dwidget.o
+release/moc_evoluteform.o
+release/moc_evolutetable.o
+release/moc_mainwindow.o
+release/moc_sgraph2dwidget.o
+release/moc_qpointtablewidget.o

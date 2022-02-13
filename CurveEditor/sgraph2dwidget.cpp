@@ -2,6 +2,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QDebug>
+#include <QPainterPath>
 
 const int vertex_radius = 5; // Радиус окружности вокруг точки
 

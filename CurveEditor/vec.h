@@ -34,6 +34,10 @@ struct Vector2{
         y/=alpha;
     }
 
+    Vector2 operator-() {
+        return Vector2(-x,-y);
+    }
+
     const Vector2 operator+(const Vector2&vec)const{
         return Vector2(x+vec.x,y+vec.y);
     }

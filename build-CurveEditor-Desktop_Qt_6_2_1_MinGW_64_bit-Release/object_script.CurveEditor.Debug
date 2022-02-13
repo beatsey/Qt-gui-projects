@@ -1,0 +1,16 @@
+debug/cppmath.o
+debug/evolute2dwidget.o
+debug/evoluteform.o
+debug/main.o
+debug/mainwindow.o
+debug/sgraph2dwidget.o
+debug/qpointtablewidget.o
+debug/variables.o
+debug/vec.o
+debug/qrc_curve_editor_res.o
+debug/moc_evolute2dwidget.o
+debug/moc_evoluteform.o
+debug/moc_evolutetable.o
+debug/moc_mainwindow.o
+debug/moc_sgraph2dwidget.o
+debug/moc_qpointtablewidget.o
