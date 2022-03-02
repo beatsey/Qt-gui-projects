@@ -16,3 +16,8 @@ Full descpription of the project is inside the directiory.
 
 # OdinOdinMnogo (2021.10.15)
 Application that implements ОДИН + ОДИН = МНОГО game on Qt + python. <a href="http://rebus1.com/index.php?item=rebusx&rebus=11">This</a> webpage was used as a reference. 
+
+# CppCodeEditor (2021.11.17)
+C++ code editor with syntax highlighting, cursor positioning, line number display, search and replace functions.
+
+![Alt text](/CppCodeEditor/codeeditor_screen.png?raw=true)
