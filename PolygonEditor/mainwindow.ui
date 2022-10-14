@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Рисовалка</string>
+   <string>Редактор фигур</string>
   </property>
   <widget class="GraphicsWidget" name="centralWidget">
    <property name="mouseTracking">
@@ -39,11 +39,11 @@
     <bool>false</bool>
    </attribute>
    <addaction name="action_figure_add"/>
-   <addaction name="action_figure_51"/>
-   <addaction name="action_figure_61"/>
    <addaction name="action_figure_remove"/>
    <addaction name="action_figure_move"/>
    <addaction name="action_figure_rotate"/>
+   <addaction name="action_figure_22"/>
+   <addaction name="action_figure_32"/>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -73,20 +73,29 @@
     <string>Удалить пересекающиеся</string>
    </property>
   </action>
-  <action name="action_figure_51">
+  <action name="action_figure_22">
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
    <property name="text">
-    <string>Фигура 51</string>
+    <string>Фигура 22</string>
+   </property>
+   <property name="toolTip">
+    <string>Фигура 22</string>
    </property>
   </action>
-  <action name="action_figure_61">
+  <action name="action_figure_32">
    <property name="checkable">
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Фигура 61</string>
+    <string>Фигура 32</string>
+   </property>
+   <property name="toolTip">
+    <string>Фигура 32</string>
    </property>
   </action>
   <action name="action_figure_add">

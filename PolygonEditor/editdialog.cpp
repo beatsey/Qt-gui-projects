@@ -12,24 +12,36 @@ EditDialog::EditDialog(QWidget *parent) :
 void EditDialog::init(figure* fig){
     this->fig=fig;
 
-    ui->AX->setValue(fig->AX);
-    ui->DR->setValue(fig->DR);
-    ui->FP->setValue(fig->FP);
-    ui->horizontalSlider_Angle->setValue(fig->Angle);
     ui->label_angle->setText(QString::number(fig->Angle));
+    ui->horizontalSlider_Angle->setValue(fig->Angle);
 
-    updatePerimeterAndArea();
+    ui->A->setMaximum(fig->h/3);
+    ui->B->setMaximum(fig->h/3);
+    ui->C->setMaximum(fig->h/3);
+    ui->D->setMaximum(fig->h/3);
+    ui->E->setMaximum(fig->w/4);
+    ui->F->setMaximum(fig->w/4);
 
-    // Только для фигуры 61
-    if (fig->type==61){
-        ui->BX->setValue(fig->BX);
-        ui->CX->setValue(fig->CX);
-        ui->EQ->setValue(fig->EQ);
-    }else if (fig->type==51) {
-        ui->BX->setEnabled(false);
-        ui->CX->setEnabled(false);
-        ui->EQ->setEnabled(false);
+    if (fig->type==22){
+        ui->A->setValue(fig->AR);
+        ui->B->setValue(fig->BR);
+        ui->C->setValue(fig->CR);
+        ui->D->setValue(fig->DX);
+        ui->E->setValue(0);
+        ui->E->setEnabled(false);
+        ui->F->setValue(fig->FQ);
+    }else if (fig->type==32) {
+        ui->A->setValue(fig->AX);
+        ui->B->setValue(0);
+        ui->B->setEnabled(false);
+        ui->C->setValue(fig->CR);
+        ui->D->setValue(fig->DX);
+        ui->E->setValue(0);
+        ui->E->setEnabled(false);
+        ui->F->setValue(0);
+        ui->F->setEnabled(false);
     }
+    updatePerimeterAndArea();
 }
 
 EditDialog::~EditDialog()
@@ -52,56 +64,59 @@ void EditDialog::on_horizontalSlider_Angle_valueChanged(int value)
     ((GraphicsWidget*)parent())->repaint();
 }
 
-void EditDialog::on_AX_valueChanged(int arg1)
+void EditDialog::on_A_valueChanged(int arg1)
 {
     fig->AX=arg1;
+    fig->AR=arg1;
     fig->calculatePolygon();
     updatePerimeterAndArea();
 
     ((GraphicsWidget*)parent())->repaint();
 }
 
-void EditDialog::on_BX_valueChanged(int arg1)
+void EditDialog::on_B_valueChanged(int arg1)
 {
     fig->BX=arg1;
+    fig->BR=arg1;
     fig->calculatePolygon();
     updatePerimeterAndArea();
-
     ((GraphicsWidget*)parent())->repaint();
 }
 
-void EditDialog::on_CX_valueChanged(int arg1)
+void EditDialog::on_C_valueChanged(int arg1)
 {
+
     fig->CX=arg1;
+    fig->CR=arg1;
     fig->calculatePolygon();
     updatePerimeterAndArea();
-
     ((GraphicsWidget*)parent())->repaint();
 }
 
-void EditDialog::on_EQ_valueChanged(int arg1)
+void EditDialog::on_D_valueChanged(int arg1)
 {
-    fig->EQ=arg1;
-    fig->calculatePolygon();
-    updatePerimeterAndArea();
 
-    ((GraphicsWidget*)parent())->repaint();
-}
-
-void EditDialog::on_DR_valueChanged(int arg1)
-{
+    fig->DX=arg1;
     fig->DR=arg1;
     fig->calculatePolygon();
     updatePerimeterAndArea();
-
     ((GraphicsWidget*)parent())->repaint();
 }
 
-void EditDialog::on_FP_valueChanged(int arg1)
+void EditDialog::on_E_valueChanged(int arg1)
 {
-    fig->FP=arg1;
+    fig->EP=arg1;
+    fig->EQ=arg1;
     fig->calculatePolygon();
     updatePerimeterAndArea();
+    ((GraphicsWidget*)parent())->repaint();
+}
 
+void EditDialog::on_F_valueChanged(int arg1)
+{
+    fig->FP=arg1;
+    fig->FQ=arg1;
+    fig->calculatePolygon();
+    updatePerimeterAndArea();
     ((GraphicsWidget*)parent())->repaint();
 }

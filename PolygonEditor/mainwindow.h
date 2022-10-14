@@ -19,9 +19,6 @@ public:
     void clearPoints();
 
 private slots:
-
-    void on_action_figure_61_triggered(bool checked);
-    void on_action_figure_51_triggered(bool checked);
     void on_action_figure_add_triggered();
 
     void on_action_triggered();
@@ -35,6 +32,10 @@ private slots:
     void on_action_figure_move_triggered();
 
     void on_action_figure_rotate_triggered();
+
+    void on_action_figure_22_triggered(bool checked);
+
+    void on_action_figure_32_triggered(bool checked);
 
 private:
     Ui::MainWindow *ui;

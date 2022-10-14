@@ -26,17 +26,17 @@ public:
 private slots:
     void on_horizontalSlider_Angle_valueChanged(int value);
 
-    void on_AX_valueChanged(int arg1);
+    void on_A_valueChanged(int arg1);
 
-    void on_BX_valueChanged(int arg1);
+    void on_B_valueChanged(int arg1);
 
-    void on_CX_valueChanged(int arg1);
+    void on_C_valueChanged(int arg1);
 
-    void on_EQ_valueChanged(int arg1);
+    void on_D_valueChanged(int arg1);
 
-    void on_DR_valueChanged(int arg1);
+    void on_F_valueChanged(int arg1);
 
-    void on_FP_valueChanged(int arg1);
+    void on_E_valueChanged(int arg1);
 
 private:
     Ui::EditDialog *ui;

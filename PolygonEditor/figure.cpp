@@ -1,27 +1,28 @@
 #include "figure.h"
 #include <time.h>
 #include <stdlib.h>
+#include <QtMath>
 
 figure::figure(int type):type(type),isSelected(false)
 {
     // Случайно определяем параметры
     srand (time(NULL));
     AX = rand() % (h/3);
-    FP = rand() % (w/4);
+    AR = rand() % (h/3);
+    BX = rand() % (h/3);
+    BR = rand() % (h/3);
+    CX = rand() % (h/3);
+    CR = rand() % (h/3);
+    DX = rand() % (h/3);
     DR = rand() % (h/3);
+
+    FQ = rand() % (w/4);
+    FP = rand() % (w/4);
+    EQ = rand() % (w/4);
+    EP = rand() % (w/4);
 
     // По умолчанию поворот против часовой стрелки
     Angle = rand() % 181-180;
-
-    if(type==61){
-        BX = rand() % (h/3);
-        CX = rand() % (h/3);
-        EQ = rand() % (w/4);
-    }else if (type==51){
-        BX=CX=EQ=0;
-    }else{
-        throw;
-    }
 
     calculatePolygon();
 }
@@ -59,55 +60,58 @@ void figure::setCenter(int x, int y, int width, int height) {
 void figure::calculatePolygon() {
     polygon.clear();
 
-    // Фигура 51
-    if(type==51) {
-        polygon.setPoints(8,
-                          w-AX,0,           // 3
-                          w,AX,             // 4
-                          w,h,              // 5
-                          w/2+FP/2,h,       // 6
-                          w/2+FP/2,h-FP/2,  // 7
-                          w/2-FP/2,h-FP/2,  // 8
-                          w/2-FP/2,h,       // 9
-                          0,h              // 10
-                          );
-
-        // Добавляем точки для окружности
-        for (int j=0;j<=90;j+=5) {
-            int x=DR-DR*cos(j*M_PI/180);
-            int y=DR-DR*sin(j*M_PI/180);
+    // Фигура 22
+    if(type==22) {
+        // Окружность AR
+        for (int j=180;j<=270;j+=5) {
+            int x=w+AR*cos(j*M_PI/180);
+            int y=-AR*sin(j*M_PI/180);
             polygon.putPoints(polygon.size(),1,x,y);
         }
-    }
-    else if(type==61){
-        // Начинаем с эллипса EQ
+
+        // Окружность BR
+        for (int j=0;j>=-90;j-=5) {
+            int x=w-BR+BR*cos(j*M_PI/180);
+            int y=h-BR-BR*sin(j*M_PI/180);
+            polygon.putPoints(polygon.size(),1,x,y);
+        }
+
+        // Эллипс FQ
         for (int j=0;j<=180;j+=5) {
-            int x=(w-EQ*cos(j*M_PI/180))/2;
-            int y=EQ*sin(j*M_PI/180)/4;
+            int x=(w-FQ*cos(j*M_PI/180))/2;
+            int y=h-FQ*sin(j*M_PI/180)/4;
             polygon.putPoints(polygon.size(),1,x,y);
         }
 
-        polygon.putPoints(polygon.size(),
-                          10,
-                          w-AX,0,           // 2
-                          w,AX,             // 3
-                          w,h-BX,           // 4
-                          w-BX,h,           // 5
-                          w/2+FP/2,h,       // 6
-                          w/2+FP/2,h-FP/2,  // 7
-                          w/2-FP/2,h-FP/2,  // 8
-                          w/2-FP/2,h,       // 9
-                          CX,h,             // 10
-                          0,h-CX            // 11
-                          );
-
-        // Добавляем точки для окружности
+        // Окружность CR
         for (int j=0;j<=90;j+=5) {
-            int x=DR*sin(j*M_PI/180);
-            int y=DR*cos(j*M_PI/180);
+            int x=CR*cos(j*M_PI/180);
+            int y=h-CR*sin(j*M_PI/180);
             polygon.putPoints(polygon.size(),1,x,y);
         }
 
+        polygon.putPoints(polygon.size(),2,
+                          0,DX,
+                          DX,0);
+
+    }
+    else if(type==32){
+        // AX
+        polygon.putPoints(polygon.size(),3,
+                          w-AX,0,
+                          w,AX,
+                          w,h);
+
+        // Окружность CR
+        for (int j=0;j<=90;j+=5) {
+            int x=CR*cos(j*M_PI/180);
+            int y=h-CR*sin(j*M_PI/180);
+            polygon.putPoints(polygon.size(),1,x,y);
+        }
+
+        polygon.putPoints(polygon.size(),2,
+                          0,DX,
+                          DX,0);
     }
 
     calculatePerimeter();
@@ -131,10 +135,10 @@ void figure::paintFigure(QPainter& painter) {
 
     // Рисуем основную часть
     if (isSelected){
-        painter.setBrush(Qt::blue);
+        painter.setBrush(Qt::red);
     }
     else {
-        painter.setBrush(Qt::black);
+        painter.setBrush(Qt::gray);
     }
 
     painter.drawPolygon(rotatedPolygon);
@@ -178,17 +182,17 @@ void figure::calculatePerimeter() {
 
 void figure::calculateArea() {
     double area=w*h;
-    if (type==51){
-        area-=(1-M_PI/4)*DR*DR; // окружность DR
-    }else if(type==61){
-        area-=M_PI/4*DR*DR; // вычитаем окружность DR
-        area-=M_PI*EQ*EQ/2/2/4; // площадь полуэллипса
-        area-=BX*BX*0.5; // BX
-        area-=CX*CX*0.5; // CX
+    if (type==22){
+        area-=AR*AR*M_PI/4; // окружность AR
+        area-=(1-M_PI/4)*BR*BR; // окружность BR
+        area-=CR*CR*M_PI/4; // окружность CR
+        area-=DX*DX*2; // треугольник DX
+        area-=M_PI*FQ*FQ/2/2/4; // эллипс FQ
+    }else if(type==32){
+        area-=AX*AX*2; // треугольник AX
+        area-=CR*CR*M_PI/4; // окружность CR
+        area-=DX*DX*2; // треугольник DX
     }else throw;
-
-        area-=FP*FP*0.5; // FP
-        area-=AX*AX*0.5; // AX
 
     this->area=area;
 }

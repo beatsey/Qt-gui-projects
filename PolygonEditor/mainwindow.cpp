@@ -19,30 +19,14 @@ MainWindow::~MainWindow(){
     delete ui;
 }
 
-void MainWindow::on_action_figure_61_triggered(bool checked)
-{
-    if (checked){
-        ui->action_figure_51->setChecked(false);
-    }
-    ui->action_figure_add->setEnabled(checked);
-}
-
-void MainWindow::on_action_figure_51_triggered(bool checked)
-{
-    if (checked){
-        ui->action_figure_61->setChecked(false);
-    }
-    ui->action_figure_add->setEnabled(checked);
-}
-
 void MainWindow::on_action_figure_add_triggered()
 {
-    if (ui->action_figure_51->isChecked()){
-        ui->centralWidget->addFigure(51);
+    if (ui->action_figure_22->isChecked()){
+        ui->centralWidget->addFigure(22);
         ui->centralWidget->repaint();
     }
-    else if (ui->action_figure_61->isChecked()){
-        ui->centralWidget->addFigure(61);
+    else if (ui->action_figure_32->isChecked()){
+        ui->centralWidget->addFigure(32);
         ui->centralWidget->repaint();
     }
 
@@ -80,4 +64,22 @@ void MainWindow::on_action_figure_move_triggered()
 void MainWindow::on_action_figure_rotate_triggered()
 {
     ui->centralWidget->editSelection();
+}
+
+void MainWindow::on_action_figure_22_triggered(bool checked)
+{
+    if (checked){
+        ui->action_figure_32->setChecked(false);
+    }
+    ui->action_figure_add->setEnabled(checked);
+
+}
+
+void MainWindow::on_action_figure_32_triggered(bool checked)
+{
+    if (checked){
+        ui->action_figure_22->setChecked(false);
+    }
+    ui->action_figure_add->setEnabled(checked);
+
 }

@@ -11,7 +11,7 @@ class figure
 {
     // Константы высоты и ширины фигур
 
-    int AX, BX, FP, CX, DR, EQ, Angle, type;
+    int AX, AR, BX, BR, CX, CR, DX, DR, EP, EQ, FP, FQ, Angle, type;
     QPoint centerOfTheFigure;
     QPolygon polygon;
     QPolygon rotatedPolygon;
