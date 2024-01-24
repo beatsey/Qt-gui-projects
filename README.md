@@ -3,6 +3,7 @@ GUI Application that implements curve interpolation methods and solutions to bas
 This project was created as a part of computer geometry course during 2nd year of bachelor studies.
 It allows you to create and edit different types of curves by given set of points.
 It was my first ever Qt project.
+![Alt text](/CurveEditor/screenshot_curveeditor.png?raw=true)
 
 # Drawer (2021.09.16)
 Simple gui project, that allows to build broken line or draw on canvas.
